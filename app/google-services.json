@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "832311279594",
+    "firebase_url": "https://gamifikasi-ec128.firebaseio.com",
+    "project_id": "gamifikasi-ec128",
+    "storage_bucket": "gamifikasi-ec128.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832311279594:android:6409672b2e4323fc",
+        "android_client_info": {
+          "package_name": "com.diskominfo.ari.gamifikasi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832311279594-pdsmju9snelf9sc7vnmk3es2udepklrf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diskominfo.ari.gamifikasi_app",
+            "certificate_hash": "0b37566432fe7294a329765d50264664e8769bac"
+          }
+        },
+        {
+          "client_id": "832311279594-irfvn8ul2j5gqkg6naji4nd0afrc83rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzsK_PIC--7JyczvZwKutbE0LZ_wEmw8Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832311279594-irfvn8ul2j5gqkg6naji4nd0afrc83rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
