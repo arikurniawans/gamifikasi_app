@@ -34,7 +34,7 @@ import static android.app.Activity.RESULT_OK;
  */
 public class FragmentHome extends Fragment{
 private int PLACE_PICKER_REQUEST = 1;;
-Button btnPeta;
+//Button btnPeta;
     public FragmentHome() {
         // Required empty public constructor
     }
@@ -46,24 +46,17 @@ Button btnPeta;
 
         final View view = inflater.inflate(R.layout.fragment_beranda, container, false);
 
-        btnPeta = view.findViewById(R.id.btnPeta);
+        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+        try {
+            //menjalankan place picker
+            startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
 
-        btnPeta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-                try {
-                    //menjalankan place picker
-                    startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
-
-                    // check apabila <a title="Solusi Tidak Bisa Download Google Play Services di Android" href="http://www.twoh.co/2014/11/solusi-tidak-bisa-download-google-play-services-di-android/" target="_blank">Google Play Services tidak terinstall</a> di HP
-                } catch (GooglePlayServicesRepairableException e) {
-                    e.printStackTrace();
-                } catch (GooglePlayServicesNotAvailableException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+            // check apabila <a title="Solusi Tidak Bisa Download Google Play Services di Android" href="http://www.twoh.co/2014/11/solusi-tidak-bisa-download-google-play-services-di-android/" target="_blank">Google Play Services tidak terinstall</a> di HP
+        } catch (GooglePlayServicesRepairableException e) {
+            e.printStackTrace();
+        } catch (GooglePlayServicesNotAvailableException e) {
+            e.printStackTrace();
+        }
 
         return  view;
     }
