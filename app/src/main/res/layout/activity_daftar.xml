@@ -1,126 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Create by : Ari & Selamat -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/viewBg"
-    tools:context=".activity.DaftarActivity">
+    android:background="@color/viewBg">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_height="fill_parent">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:paddingHorizontal="15dp">
-
-        <!--<ImageView
-            android:layout_gravity="center"
-            android:id="@+id/user_profile_photo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/user_profile_image_background"
-            android:elevation="4dp"
-            android:src="@drawable/m_user"/>-->
-
-
-
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/black2"
-            android:theme="@style/myEditTextStyleBlack"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:id="@+id/etEmail"
-                android:inputType="textEmailAddress"
-                android:textColorHint="@color/black2"
-                android:textColor="@color/black2"
-                android:drawableEnd="@drawable/ic_email_black_24dp"
-                tools:ignore="RtlCompat" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/black2"
-            android:theme="@style/myEditTextStyleBlack"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="No. Handphone"
-                android:id="@+id/etNope"
-                android:inputType="number"
-                android:textColorHint="@color/black2"
-                android:textColor="@color/black2"
-                tools:ignore="RtlCompat"
-                android:drawableEnd="@drawable/ic_smartphone_black_24dp"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:textColorHint="@color/black2"
-            android:layout_marginTop="10dp"
-            android:theme="@style/myEditTextStyleBlack"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:id="@+id/etPassword"
-                android:inputType="textPassword"
-                android:textColorHint="@color/black2"
-                android:textColor="@color/black2"
-                tools:ignore="RtlCompat"
-                android:drawableEnd="@drawable/ic_lock_black_24dp"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:textColorHint="@color/black2"
-            android:layout_marginTop="10dp"
-            android:theme="@style/myEditTextStyleBlack"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Re-Enter Password"
-                android:id="@+id/etPassword2"
-                android:inputType="textPassword"
-                android:textColorHint="@color/black2"
-                android:textColor="@color/black2"
-                tools:ignore="RtlCompat"
-                android:drawableEnd="@drawable/ic_lock_black_24dp"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnDaftar"
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/loginbutton_selector"
-            android:padding="3dp"
-            android:text="Daftar"
-            android:textColor="@color/white_greyish"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="15dp">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:layout_marginTop="-10dp"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Register" />
+
+            <!--<ImageView
+                android:layout_gravity="center"
+                android:id="@+id/user_profile_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/user_profile_image_background"
+                android:elevation="4dp"
+                android:src="@drawable/m_user"/>-->
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:textColorHint="@color/black2"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="NIK"
+                    android:id="@+id/etNik"
+                    android:inputType="number"
+                    android:textColorHint="@color/black2"
+                    android:textColor="@color/black2"
+                    android:drawableEnd="@drawable/ic_nik"
+                    tools:ignore="RtlCompat" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black2"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Lengkap"
+                    android:id="@+id/etNama"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/black2"
+                    android:textColor="@color/black2"
+                    android:drawableEnd="@drawable/ic_userku"
+                    tools:ignore="RtlCompat" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black2"
+                android:layout_height="wrap_content">
+
+                <Spinner
+                    android:id="@+id/spKelamin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#000"
+                    android:entries="@array/android_layout_arrays"
+                    android:padding="5dp" />
+
+            </android.support.design.widget.TextInputLayout>
 
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black2"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:id="@+id/etEmail"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/black2"
+                    android:textColor="@color/black2"
+                    android:drawableEnd="@drawable/ic_email"
+                    tools:ignore="RtlCompat" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black2"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="No. Handphone"
+                    android:id="@+id/etNope"
+                    android:inputType="number"
+                    android:textColorHint="@color/black2"
+                    android:textColor="@color/black2"
+                    android:drawableEnd="@drawable/ic_smartphone"
+                    tools:ignore="RtlCompat" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:textColorHint="@color/black2"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:id="@+id/etPassword"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/black2"
+                    android:textColor="@color/black2"
+                    android:drawableEnd="@drawable/ic_pass"
+                    tools:ignore="RtlCompat" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnDaftar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorPrimary"
+                android:padding="3dp"
+                android:text="Daftar"
+                android:textColor="#EEEEEE"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

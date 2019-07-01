@@ -6,13 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.diskominfo.ari.gamifikasi_app.R;
 
@@ -20,8 +22,7 @@ import com.diskominfo.ari.gamifikasi_app.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHome extends Fragment {
-
+public class FragmentHome extends Fragment{
 
     public FragmentHome() {
         // Required empty public constructor
@@ -36,7 +37,6 @@ public class FragmentHome extends Fragment {
 
         return  view;
     }
-
 
 
 
