@@ -1,5 +1,6 @@
 package com.diskominfo.ari.gamifikasi_app.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.diskominfo.ari.gamifikasi_app.Kelas.JalurApi;
 import com.diskominfo.ari.gamifikasi_app.Kelas.Pengguna;
+import com.diskominfo.ari.gamifikasi_app.MainActivity;
 import com.diskominfo.ari.gamifikasi_app.R;
 import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -64,7 +66,6 @@ Button btn_daftar;
             }
         });
 
-
     }
 
 
@@ -107,6 +108,8 @@ Button btn_daftar;
                 super.onPostExecute(result);
                 if(result.equalsIgnoreCase("success")){
                     Toast.makeText(getApplication(),"Register berhasil",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(DaftarActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(getApplication(),"Gagal Simpan Data",Toast.LENGTH_LONG).show();
                 }
