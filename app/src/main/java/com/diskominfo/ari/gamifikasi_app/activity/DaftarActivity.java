@@ -15,14 +15,6 @@ import com.diskominfo.ari.gamifikasi_app.Kelas.JalurApi;
 import com.diskominfo.ari.gamifikasi_app.Kelas.Pengguna;
 import com.diskominfo.ari.gamifikasi_app.MainActivity;
 import com.diskominfo.ari.gamifikasi_app.R;
-import com.firebase.client.Firebase;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

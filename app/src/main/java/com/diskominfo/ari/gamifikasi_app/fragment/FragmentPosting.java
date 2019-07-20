@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.diskominfo.ari.gamifikasi_app.R;
-import com.google.firebase.database.DatabaseReference;
 
 
 /**
@@ -27,7 +26,6 @@ public class FragmentPosting extends Fragment {
     //AdapterKerabat adapterKerabat;
    // private List<Kerabat> listKerabat;
     FloatingActionButton btnCreate;
-    private DatabaseReference database;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

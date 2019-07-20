@@ -66,7 +66,7 @@
                             android:id="@+id/love_music"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aplikasi Pai"
+                            android:text="Aplikasi Panic Button"
                             android:textColor="#FFFFFF"
                             android:textStyle="bold"
                             android:textSize="30dp" />
@@ -123,7 +123,7 @@
                                 android:drawableTop="@drawable/ic_menu1"
                                 android:gravity="center|center_horizontal"
                                 android:padding="1dp"
-                                android:text="Pencarian Bimbel"
+                                android:text="Panic"
                                 android:textStyle="bold"
                                 android:visibility="visible" />
 
@@ -166,7 +166,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/button_background"
-                                android:drawableTop="@drawable/ic_menu3"
+                                android:drawableTop="@drawable/ic_bantuan"
                                 android:gravity="center|center_horizontal"
                                 android:padding="1dp"
                                 android:text="Bantuan"
@@ -182,7 +182,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/button_background"
-                                android:drawableTop="@drawable/ic_menu4"
+                                android:drawableTop="@drawable/ic_logout"
                                 android:gravity="center|center_horizontal"
                                 android:padding="1dp"
                                 android:text="Logout"

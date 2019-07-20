@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.diskominfo.ari.gamifikasi_app.R;
-import com.google.firebase.database.DatabaseReference;
 
 
 
@@ -23,8 +22,6 @@ public class FragmentProfil extends Fragment {
         // Required empty public constructor
     }
 
-
-    private DatabaseReference database;
     EditText txtUsername, txtNIk,txtEmail;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
