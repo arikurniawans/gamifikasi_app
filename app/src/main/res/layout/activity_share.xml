@@ -22,6 +22,22 @@
             android:padding="10dp"
             android:orientation="vertical" >
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:layout_height="wrap_content"
+                android:padding="7dp">
+
+                <Spinner
+                    android:id="@+id/sp_kategori"
+                    android:layout_width="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"></Spinner>
+
+            </RelativeLayout>
+
             <EditText
                 android:id="@+id/etIsiLaporan"
                 android:layout_width="fill_parent"
@@ -93,8 +109,8 @@
         android:text="Kirim"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:id="@+id/btnSimpanLaporan"
-        android:background="#3498db"
+        android:id="@+id/btnSimpan"
+        android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true" />
 

@@ -11,30 +11,28 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.diskominfo.ari.gamifikasi_app.Kelas.SharedVariable;
 import com.diskominfo.ari.gamifikasi_app.R;
 import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.text.DecimalFormat;
 
 public class MapsActivity extends FragmentActivity {
     private GoogleMap mMap;
-    GoogleMap googleMap;
+    FloatingActionMenu materialDesignFAM;
+    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
     SupportMapFragment mapFragment;
     Location location;
     LocationManager locationManager;
-    FloatingActionButton menu1,menu2,menu3 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,38 +48,31 @@ public class MapsActivity extends FragmentActivity {
         location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
         current_position();
 
-        menu1 = (FloatingActionButton)findViewById(R.id.subFloatingMenu1) ;
-        menu2 = (FloatingActionButton)findViewById(R.id.subFloatingMenu2) ;
-        menu3 = (FloatingActionButton)findViewById(R.id.subFloatingMenu3) ;
+        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.material_design_android_floating_action_menu);
+        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item1);
+        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
+        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item3);
 
-        menu1.setOnClickListener(new View.OnClickListener() {
-            @Override
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Toast.makeText(MapsActivity.this , " Alarm Icon clicked ", Toast.LENGTH_LONG).show();
+                //TODO something when floating action menu first item clicked
+                Intent intent = new Intent(MapsActivity.this, ShareActivity.class);
+                startActivity(intent);
+            }
+        });
+        floatingActionButton2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu second item clicked
 
             }
         });
-
-        menu2.setOnClickListener(new View.OnClickListener() {
-            @Override
+        floatingActionButton3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Toast.makeText(MapsActivity.this , "BackUp Icon clicked", Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-        menu3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(MapsActivity.this , "Settings Icon clicked", Toast.LENGTH_LONG).show();
+                //TODO something when floating action menu third item clicked
 
             }
         });
     }
-
 
     void current_position(){
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -100,12 +91,13 @@ public class MapsActivity extends FragmentActivity {
                 if (location!=null){
                     LatLng MyLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
-                        mMap.getUiSettings().setZoomControlsEnabled(true);
+                    SharedVariable.LATI = location.getLatitude();
+                    SharedVariable.LONGI = location.getLongitude();
+
+                        mMap.getUiSettings().setZoomControlsEnabled(false);
                         mMap.getUiSettings().setZoomGesturesEnabled(true);
                         mMap.addMarker(new MarkerOptions().position(MyLocation).title("Posisi Anda").snippet(""+location.getLatitude()));
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyLocation,13));
-
-
 
                 }else{
                     Toast.makeText(getApplication(), "Lokasi Tidak Di temukan", Toast.LENGTH_SHORT).show();
