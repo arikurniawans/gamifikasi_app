@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Create by : Ari & Selamat -->
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardlist_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp"
+    android:layout_marginBottom="5dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginTop="5dp"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    card_view:cardCornerRadius="4dp"
+    card_view:cardCornerRadius="10dp"
     card_view:cardElevation="@dimen/cardview_default_elevation">
 
     <RelativeLayout
@@ -18,60 +19,162 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:id="@+id/relaList"
-        android:paddingBottom="2dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:clickable="true">
 
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rela2">
-
-            <ImageView
-                android:id="@+id/imgFoto"
-                android:layout_marginLeft="10dp"
-                android:layout_width="70dp"
-                android:layout_centerVertical="true"
-                android:layout_height="70dp"
-                card_view:srcCompat="@drawable/ic_person_black_24dp" />
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:orientation="vertical"
-                android:layout_centerVertical="true"
-                android:paddingBottom="2dp"
-                android:layout_toRightOf="@+id/imgFoto"
-                android:paddingRight="16dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/line1"
-                android:layout_marginLeft="5dp"
-                >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/imgStatus"
+                    android:id="@+id/rela2">
+
+                    <ImageView
+                        android:id="@+id/imgFoto"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:paddingTop="8dp"
+                        android:src="@drawable/ic_noimage" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:id="@+id/line1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/imgFoto"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtKategori"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:lines="2"
+                            android:text="Loading..."
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/txtPelapor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loading..."
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/primary_text_default_material_light"
+                            android:textSize="@dimen/abc_text_size_subhead_material" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtIdlapor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="300dp"
+                        android:textColor="#fff"
+                        android:text="-" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#000"/>
 
                 <TextView
-                    android:id="@+id/txtNama"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Kerabat"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#000"
+                    android:paddingLeft="5dp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="17sp" />
-
+                    android:text="Alamat"/>
 
                 <TextView
-                    android:id="@+id/txtNope"
+                    android:id="@+id/txt_alamat_pesan"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:paddingLeft="5dp"
+                    android:text="Isi Alamat"
+                    android:textColor="#000" />
+
+                <!--<ImageView
+                    android:id="@+id/imgCal"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_calendar"/>-->
+
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="08976272728"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/primary_text_default_material_light"
-                    android:textSize="@dimen/abc_text_size_subhead_material" />
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:id="@+id/line2"
+                    android:layout_marginTop="-25dp"
+                    android:layout_toRightOf="@+id/imgCal"
+                    >
 
+
+                    <TextView
+                        android:id="@+id/txtWaktuLapor"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="160dp"
+                        android:text="22-05-2019"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:textSize="@dimen/abc_text_size_subhead_material"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+                <!-- <ImageView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentBottom="true"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="350dp"
+                     android:src="@drawable/ic_panah"/>-->
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
+
+        <!-- <ImageView
+             android:id="@+id/imgStatus"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_marginLeft="340dp"
+             android:src="@drawable/check" />-->
 
     </RelativeLayout>
 

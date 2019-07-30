@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -149,6 +150,7 @@ public class ShareActivity extends AppCompatActivity {
     }
 
 
+
     private void uploadImage(){
         //Showing the progress dialog
         final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
@@ -160,14 +162,12 @@ public class ShareActivity extends AppCompatActivity {
                         loading.dismiss();
                         //Showing toast message of the response
                         Toast.makeText(ShareActivity.this, s , Toast.LENGTH_LONG).show();
-                        /*Intent intent = new Intent(ShareActivity.this,LaporanActivity.class);
-                        startActivity(intent);*/
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        //Dismissing the progress dialog
+                        //Dismissing the progress dialog0
                         loading.dismiss();
 
                         //Showing toast
@@ -177,19 +177,19 @@ public class ShareActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Converting Bitmap to String
-                String image_lokasi = getStringImage(bitmap);
-
-                String kategori = spKateg.getSelectedItem().toString().trim();
+                String image = getStringImage(bitmap);
+                String kategori = spKateg.getSelectedItem().toString();
                 String laporan = etLaporan.getText().toString().trim();
-
+                String id_user  = "1";
 
                 //Creating parameters
                 Map<String,String> params = new Hashtable<String, String>();
 
                 //Adding parameters
-                params.put("f_lokasi", image_lokasi);
-
-                //params.put("id_user", id_user);
+                params.put("foto", image);
+                params.put("id_user", id_user);
+                params.put("kategori", kategori);
+                params.put("laporan", laporan);
 
                 //returning parameters
                 return params;

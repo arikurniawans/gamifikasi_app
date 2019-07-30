@@ -30,4 +30,12 @@
         app:elevation="6dp"
         app:pressedTranslationZ="12dp" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_viewPosting"
+        android:layout_below="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"/>
+
 </FrameLayout>

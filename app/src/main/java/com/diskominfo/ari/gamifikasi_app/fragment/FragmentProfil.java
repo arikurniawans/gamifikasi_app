@@ -22,7 +22,6 @@ public class FragmentProfil extends Fragment {
         // Required empty public constructor
     }
 
-    EditText txtUsername, txtNIk,txtEmail;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
