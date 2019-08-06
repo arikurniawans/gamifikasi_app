@@ -140,7 +140,7 @@
                                 android:drawableTop="@drawable/ic_menu2"
                                 android:gravity="center|center_horizontal"
                                 android:padding="1dp"
-                                android:text="Profil"
+                                android:text="Share Ku"
                                 android:textStyle="bold" />
 
                             <TextView

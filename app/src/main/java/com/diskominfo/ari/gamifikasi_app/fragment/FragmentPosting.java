@@ -3,6 +3,7 @@ package com.diskominfo.ari.gamifikasi_app.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -10,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +26,7 @@ import com.diskominfo.ari.gamifikasi_app.Kelas.ListPostingModel;
 import com.diskominfo.ari.gamifikasi_app.Kelas.SharedVariable;
 import com.diskominfo.ari.gamifikasi_app.R;
 import com.diskominfo.ari.gamifikasi_app.RequestHandler;
+import com.diskominfo.ari.gamifikasi_app.activity.MapsActivity;
 import com.diskominfo.ari.gamifikasi_app.adapter.AdapterPosting;
 
 import org.json.JSONArray;
@@ -46,6 +49,7 @@ AdapterPosting adapterPosting;
 List<ListPostingModel> postingModelList;
 String JSON_STRING;
 ProgressDialog loading;
+FloatingActionButton btnCreate;
     public FragmentPosting() {
         // Required empty public constructor
     }
@@ -63,6 +67,17 @@ ProgressDialog loading;
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapterPosting);
         getJSON();
+
+        btnCreate = view.findViewById(R.id.btnCreate);
+
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
@@ -97,6 +112,33 @@ ProgressDialog loading;
     }
 
 
+    private String getCompleteAddressString(double LATITUDE, double LONGITUDE) {
+        String strAdd = "";
+        Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+            if (addresses != null) {
+                Address returnedAddress = addresses.get(0);
+                StringBuilder strReturnedAddress = new StringBuilder("");
+
+                for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
+                    strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+                }
+                strAdd = strReturnedAddress.toString();
+                //Toast.makeText(getApplication(),"Data Alamat "+strReturnedAddress.toString(),Toast.LENGTH_LONG).show();
+                SharedVariable.ALAMAT = strReturnedAddress.toString();
+                //Log.w("My Current loction address", strReturnedAddress.toString());
+            } else {
+                //Log.w("My Current loction address", "No Address returned!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            //Log.w("My Current loction address", "Canont get Address!");
+        }
+        return strAdd;
+    }
+
+
     private void showALlposting(String response){
         JSONObject jsonObject = null;
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -116,10 +158,12 @@ ProgressDialog loading;
                 String longi = jo.getString("longi");
                 String tgl_posting = jo.getString("tgl_posting");
 
+                getCompleteAddressString(Double.valueOf(lati),Double.valueOf(longi));
+
                 ListPostingModel posting = new ListPostingModel(
                         foto,
                         kategori,
-                        "Jl. ZA. Pagar Alam No.26, Labuhan Ratu, Kec. Kedaton, Kota Bandar Lampung, Lampung 35142",
+                        SharedVariable.ALAMAT,
                         id_posting,
                         "Nama Pelapor : "+nama,
                         tgl_posting

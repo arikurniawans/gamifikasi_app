@@ -25,7 +25,6 @@ import com.diskominfo.ari.gamifikasi_app.MainActivity;
 import com.diskominfo.ari.gamifikasi_app.R;
 import com.diskominfo.ari.gamifikasi_app.activity.BerandaActivity;
 import com.diskominfo.ari.gamifikasi_app.activity.DaftarActivity;
-import com.diskominfo.ari.gamifikasi_app.activity.DetailShareAllActivity;
 import com.diskominfo.ari.gamifikasi_app.activity.DetailSharemeActivity;
 import com.diskominfo.ari.gamifikasi_app.fragment.FragmentPosting;
 
@@ -43,13 +42,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHolder> {
+public class AdapterPostingme extends RecyclerView.Adapter<AdapterPostingme.MyViewHolder> {
 
     private Context mContext;
-    private List<ListPostingModel> postingListAll;
-    public Button btn_detailal,btnLike;
+    private List<ListPostingModel> postingListMe;
+    public Button btn_detailme,btnShare;
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtKategoriAll,txtPelaporAll,txtAlamatAll,txtIdlaporAll,txtWaktuLaporAll;
+        public TextView txtKategoriMe,txtPelaporMe,txtAlamatMe,txtIdlaporMe,txtWaktuLaporMe;
         public ImageView imgFoto;
         //public CircleImageView imgFoto;
         public CardView cv_main;
@@ -58,29 +57,29 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
 
         public MyViewHolder(View view) {
             super(view);
-            imgFoto = view.findViewById(R.id.imgFotoAll);
+            imgFoto = view.findViewById(R.id.imgFotoMe);
             cv_main = view.findViewById(R.id.cardlist_item);
             relaList = view.findViewById(R.id.relaList);
-            txtKategoriAll = view.findViewById(R.id.txtKategoriAll);
-            txtPelaporAll = view.findViewById(R.id.txtPelaporAll);
-            txtAlamatAll = view.findViewById(R.id.txt_alamat_pesanAll);
-            txtIdlaporAll = view.findViewById(R.id.txtIdlaporAll);
-            txtWaktuLaporAll = view.findViewById(R.id.txtKalendarAll);
-            btn_detailal = view.findViewById(R.id.btn_detailall);
-            btnLike = view.findViewById(R.id.btn_like);
+            txtKategoriMe = view.findViewById(R.id.txtKategoriMe);
+            txtPelaporMe = view.findViewById(R.id.txtPelaporMe);
+            txtAlamatMe = view.findViewById(R.id.txt_alamat_pesanMe);
+            txtIdlaporMe = view.findViewById(R.id.txtIdlaporMe);
+            txtWaktuLaporMe = view.findViewById(R.id.txtKalendarMe);
+            btn_detailme = view.findViewById(R.id.btn_detailme);
+            btnShare = view.findViewById(R.id.btn_share);
         }
     }
 
-    public AdapterPosting(Context mContext, List<ListPostingModel> riwayatList) {
+    public AdapterPostingme(Context mContext, List<ListPostingModel> riwayatList) {
         this.mContext = mContext;
-        this.postingListAll = riwayatList;
+        this.postingListMe = riwayatList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.itemlist_posting, parent, false);
+                .inflate(R.layout.itemlist_postingme, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -88,41 +87,56 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        if(postingListAll.isEmpty()){
+        if(postingListMe.isEmpty()){
             Toast.makeText(mContext.getApplicationContext(),"Belum ada postingan",Toast.LENGTH_LONG).show();
         }else{
-            final ListPostingModel postingClass = postingListAll.get(position);
+            final ListPostingModel postingClass = postingListMe.get(position);
 
-            holder.txtKategoriAll.setText(postingClass.getKategori());
-            holder.txtPelaporAll.setText(postingClass.getPelapor());
-            holder.txtAlamatAll.setText(postingClass.getAlamat());
-            holder.txtIdlaporAll.setText(postingClass.getIdLapor());
-            holder.txtWaktuLaporAll.setText(postingClass.getWaktuLapor());
+            holder.txtKategoriMe.setText(postingClass.getKategori());
+            holder.txtPelaporMe.setText(postingClass.getPelapor());
+            holder.txtAlamatMe.setText(postingClass.getAlamat());
+            holder.txtIdlaporMe.setText(postingClass.getIdLapor());
+            holder.txtWaktuLaporMe.setText(postingClass.getWaktuLapor());
             Glide.with(mContext)
                     .load(postingClass.getFoto())
                     .into(holder.imgFoto);
 
-            btn_detailal.setOnClickListener(new View.OnClickListener() {
+            btn_detailme.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext.getApplicationContext(), DetailShareAllActivity.class);
+                    Intent intent = new Intent(mContext.getApplicationContext(), DetailSharemeActivity.class);
                     intent.putExtra("id_posting",postingClass.getIdLapor());
                     mContext.startActivity(intent);
                 }
             });
 
-            btnLike.setOnClickListener(new View.OnClickListener() {
+            btnShare.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                            mContext);
 
-                    if(btnLike.getText().toString().equals("Like")){
-                        btnLike.setText("Unlike");
-                        Like(postingClass.getIdLapor(),SharedVariable.ID_PENGGUNA);
-                    }else if(btnLike.getText().toString().equals("Unlike")){
-                        btnLike.setText("Like");
-                        UnLike(postingClass.getIdLapor(),SharedVariable.ID_PENGGUNA);
-                    }
+                    alertDialogBuilder.setTitle("Informasi");
+                    alertDialogBuilder
+                            .setMessage("Apakah anda ingin share ?")
+                            //.setIcon(R.mipmap.ic_launcher)
+                            .setCancelable(false)
+                            .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+                                    simpanShare(postingClass.getIdLapor(), SharedVariable.ID_PENGGUNA);
+                                }
+                            })
+                            .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
 
+                    // membuat alert dialog dari builder
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // menampilkan alert dialog
+                    alertDialog.show();
                 }
             });
 
@@ -132,11 +146,11 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
 
     @Override
     public int getItemCount() {
-        return postingListAll.size();
+        return postingListMe.size();
     }
 
 
-    public void Like(final String id_posting, final String id_user){
+    public void simpanShare(final String id_posting, final String id_user){
 
         class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
             @Override
@@ -149,7 +163,7 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            JalurApi.API_LIKE);
+                            JalurApi.API_SHARE);
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpClient.execute(httpPost);
@@ -170,7 +184,9 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 if(result.equalsIgnoreCase("success")){
-                    Toast.makeText(mContext.getApplicationContext(),"Post Liked !",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext.getApplicationContext(),"Share berhasil",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(mContext.getApplicationContext(), BerandaActivity.class);
+                    mContext.startActivity(intent);
                 }else{
                     Toast.makeText(mContext.getApplicationContext(),"Gagal Simpan Data",Toast.LENGTH_LONG).show();
                 }
@@ -180,53 +196,6 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
         sendPostReqAsyncTask.execute(id_posting,id_user);
 
     }
-
-
-    public void UnLike(final String id_posting, final String id_user){
-
-        class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
-            @Override
-            protected String doInBackground(String... params) {
-
-                List<NameValuePair> nameValuePairs = new ArrayList<>();
-                nameValuePairs.add(new BasicNameValuePair("id_posting", id_posting));
-                nameValuePairs.add(new BasicNameValuePair("id_user", id_user));
-
-                try {
-                    HttpClient httpClient = new DefaultHttpClient();
-                    HttpPost httpPost = new HttpPost(
-                            JalurApi.API_UNLIKE);
-                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-                    HttpResponse response = httpClient.execute(httpPost);
-
-                    HttpEntity entity = response.getEntity();
-
-                } catch (ClientProtocolException e) {
-                    e.printStackTrace();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-
-                }
-                return "success";
-            }
-
-            @Override
-            protected void onPostExecute(String result) {
-                super.onPostExecute(result);
-                if(result.equalsIgnoreCase("success")){
-                    Toast.makeText(mContext.getApplicationContext(),"Post Unliked !",Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(mContext.getApplicationContext(),"Gagal Simpan Data",Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-        SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
-        sendPostReqAsyncTask.execute(id_posting,id_user);
-
-    }
-
 
 
 }

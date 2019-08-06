@@ -40,8 +40,8 @@ import java.util.Hashtable;
 import java.util.Map;
 
 public class ShareActivity extends AppCompatActivity {
-    String[] SPINNERLIST = {"Pilih Kategori","Panic","Kriminal","Rumah Sakits"};
-    Spinner spKateg;
+    String[] SPINNERLIST = {"Pilih Kategori","Panic","Kriminal","Rumah Sakit"};
+    //Spinner spKateg;
     EditText etLaporan;
     ImageView imgFoto;
     Button btnSimpan;
@@ -50,23 +50,26 @@ public class ShareActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST_CODE = 7777;
     TextView txtFoto;
     CardView cardImage;
-    String kategori;
+    String kateg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
-        spKateg = (Spinner) findViewById(R.id.sp_kategori);
+        //spKateg = (Spinner) findViewById(R.id.sp_kategori);
+        final Intent intent = getIntent();
         etLaporan = (EditText) findViewById(R.id.etIsiLaporan);
         imgFoto = (ImageView) findViewById(R.id.imgFoto);
         txtFoto = (TextView) findViewById(R.id.txtFoto);
         cardImage = (CardView) findViewById(R.id.cardImage);
         btnSimpan = (Button) findViewById(R.id.btnSimpan);
+        kateg = intent.getStringExtra("event");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+        /*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
         spKateg.setAdapter(arrayAdapter);
-        spKateg.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+        spKateg.setOnItemSelectedListener(new CustomOnItemSelectedListener());*/
+
         Camerapermission();
 
         cardImage.setOnClickListener(new View.OnClickListener() {
@@ -86,26 +89,26 @@ public class ShareActivity extends AppCompatActivity {
 
     }
 
-    public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
+    //public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 
-        String firstItem = String.valueOf(spKateg.getSelectedItem());
+        ///String firstItem = String.valueOf(spKateg.getSelectedItem());
 
-        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            if (firstItem.equals(String.valueOf(spKateg.getSelectedItem()))) {
+        ///public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            //if (firstItem.equals(String.valueOf(spKateg.getSelectedItem()))) {
                 // ToDo when first item is selected
-            } else {
+           // } else {
                 /*Toast.makeText(parent.getContext(),
                         "Kamu memilih : " + parent.getItemAtPosition(pos).toString(),
                         Toast.LENGTH_LONG).show();*/
-                kategori = parent.getItemAtPosition(pos).toString();
-            }
-        }
+                //kategori = parent.getItemAtPosition(pos).toString();
+            //}
+        //}
 
-        @Override
-        public void onNothingSelected(AdapterView<?> arg) {
+        //@Override
+        //public void onNothingSelected(AdapterView<?> arg) {
 
-        }
-    }
+       // }
+    //}
 
 
     public String getStringImage(Bitmap bmp){
@@ -178,18 +181,22 @@ public class ShareActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Converting Bitmap to String
                 String image = getStringImage(bitmap);
-                String kategori = spKateg.getSelectedItem().toString();
+                String kategori = kateg;
                 String laporan = etLaporan.getText().toString().trim();
-                String id_user  = "1";
+                String id_user  = SharedVariable.ID_PENGGUNA;
+                String lats = String.valueOf(SharedVariable.LATI);
+                String longs = String.valueOf(SharedVariable.LONGI);
 
                 //Creating parameters
                 Map<String,String> params = new Hashtable<String, String>();
 
                 //Adding parameters
                 params.put("foto", image);
-                params.put("id_user", id_user);
                 params.put("kategori", kategori);
                 params.put("laporan", laporan);
+                params.put("id_user", id_user);
+                params.put("lati", lats);
+                params.put("longi", longs);
 
                 //returning parameters
                 return params;

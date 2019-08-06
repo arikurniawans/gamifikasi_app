@@ -57,18 +57,30 @@ public class MapsActivity extends FragmentActivity {
             public void onClick(View v) {
                 //TODO something when floating action menu first item clicked
                 Intent intent = new Intent(MapsActivity.this, ShareActivity.class);
+                intent.putExtra("event","Panic");
+                finish();
                 startActivity(intent);
             }
         });
+
         floatingActionButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu second item clicked
+                Intent intent = new Intent(MapsActivity.this, ShareActivity.class);
+                intent.putExtra("event","Rumah Sakit");
+                finish();
+                startActivity(intent);
 
             }
         });
+
         floatingActionButton3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu third item clicked
+                Intent intent = new Intent(MapsActivity.this, ShareActivity.class);
+                intent.putExtra("event","Kriminal");
+                finish();
+                startActivity(intent);
 
             }
         });

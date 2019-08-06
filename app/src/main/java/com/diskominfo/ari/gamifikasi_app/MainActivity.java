@@ -50,7 +50,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
 TextView txtKeterangan;
-EditText etEmail, etPass;
+public static EditText etEmail, etPass;
 Button btnLogin;
 String USER_NAME="";
     private Location mLastLocation;
