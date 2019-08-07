@@ -83,13 +83,86 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="0"
                                 android:id="@+id/txtPointShare"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="20dp"
                                 android:textSize="20sp"
                                 android:textColor="#000"
                                 />
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:orientation="vertical"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="@dimen/cardview_default_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_like" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/txtPointLike"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="20sp"
+                            android:textColor="#000"
+                            />
+
+                    </LinearLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_margin="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:orientation="vertical"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="@dimen/cardview_default_elevation">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/ic_rating" />
+
+                            <android.support.v7.widget.AppCompatRatingBar
+                                android:id="@+id/rt_bar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:isIndicator="true"
+                                android:numStars="5"
+                                android:rating="0.0"
+                                android:stepSize="0.5" />
 
                         </LinearLayout>
 
@@ -115,13 +188,13 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginLeft="10dp"
-                                android:src="@drawable/ic_like" />
+                                android:src="@drawable/ic_badges" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Loading..."
-                                android:id="@+id/txtPointLike"
+                                android:id="@+id/txtBadges"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="20dp"
                                 android:textSize="20sp"
@@ -140,9 +213,11 @@
                         android:visibility="invisible"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:orientation="vertical"
                         card_view:cardCornerRadius="4dp"
+                        android:id="@+id/cardBonus"
                         card_view:cardElevation="@dimen/cardview_default_elevation">
 
                         <LinearLayout
@@ -156,23 +231,22 @@
                                 android:layout_height="50dp"
                                 android:src="@drawable/ic_card"/>
 
-                            <TextView
+                            <Button
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
-                                android:id="@+id/txtGift"
+                                android:text="Lihat Bonus"
+                                android:background="@drawable/btn_round"
+                                android:id="@+id/btnGift"
+                                android:textColor="#ffffff"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="20dp"
-                                android:textSize="20sp"
-                                android:textColor="#000"
-                                />
+                                android:layout_marginLeft="20dp" />
 
                         </LinearLayout>
 
 
                     </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    <!--<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_alignParentBottom="true"
                         android:layout_width="match_parent"
@@ -206,7 +280,7 @@
                         </RelativeLayout>
 
 
-                    </android.support.v7.widget.CardView>
+                    </android.support.v7.widget.CardView>-->
 
                 </LinearLayout>
 

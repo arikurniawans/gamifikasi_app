@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/fragment_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fitsSystemWindows="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/lineDataPengguna"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bantuan"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="normal"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="25sp"
+                        android:textColor="#000"
+                        />
+
+                    <com.riyagayasen.easyaccordion.AccordionView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:isAnimated="true"
+                        android:layout_marginHorizontal="10dp"
+                        app:heading="Login Aplikasi"
+                        app:isExpanded="false"
+                        app:isPartitioned="true">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/txtBuatLaporan"
+                            android:text="Ketikan username dan password yang sudah terdaftar"
+                            />
+
+                    </com.riyagayasen.easyaccordion.AccordionView>
+
+                    <com.riyagayasen.easyaccordion.AccordionView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:isAnimated="true"
+                        android:layout_marginHorizontal="10dp"
+                        app:heading="Share Lokasi"
+                        app:isExpanded="false"
+                        app:isPartitioned="true">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:id="@+id/txtCekLaporan"
+                            android:text="Klik tombol plus dan pilih jenis kejadian yang berlangsung kemudian potret dan submit"
+                            />
+
+                    </com.riyagayasen.easyaccordion.AccordionView>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

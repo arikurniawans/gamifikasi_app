@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'org.apache.karaf.cellar:http:4.0.3'
     implementation 'org.apache.karaf.http:http:3.0.8'
+    implementation 'com.riyagayasen.android:easyaccordion:1.0.3'
     implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
