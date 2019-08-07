@@ -4,6 +4,7 @@ import android.net.Uri;
 
 public class SharedVariable {
 public static String ID_PENGGUNA;
+public static String NIP;
 public static Double LATI;
 public static Double LONGI;
 public static String ALAMAT;

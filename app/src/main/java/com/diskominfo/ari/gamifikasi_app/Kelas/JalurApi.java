@@ -12,4 +12,6 @@ public class JalurApi {
     public static String API_SHARE = "https://esri.000webhostapp.com/api_gamifikasi/act_share.php";
     public static String API_LIKE = "https://esri.000webhostapp.com/api_gamifikasi/act_like.php";
     public static String API_UNLIKE = "https://esri.000webhostapp.com/api_gamifikasi/act_unlike.php";
+    public static String API_JUMLAH_LIKE = "https://esri.000webhostapp.com/api_gamifikasi/jumlah_like.php?id_user=";
+    public static String API_JUMLAH_SHARE = "https://esri.000webhostapp.com/api_gamifikasi/jumlah_share.php?id_user=";
 }

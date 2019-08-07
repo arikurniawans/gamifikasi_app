@@ -111,7 +111,9 @@ ProgressDialog loading;
             for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
                 String id_user = jo.getString("id_user");
+                String nip = jo.getString("nip");
                 SharedVariable.ID_PENGGUNA = id_user;
+                SharedVariable.NIP = nip;
             }
 
 
