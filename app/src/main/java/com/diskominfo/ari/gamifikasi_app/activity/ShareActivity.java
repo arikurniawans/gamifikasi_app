@@ -39,13 +39,15 @@ import java.io.ByteArrayOutputStream;
 import java.util.Hashtable;
 import java.util.Map;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class ShareActivity extends AppCompatActivity {
     String[] SPINNERLIST = {"Pilih Kategori","Panic","Kriminal","Rumah Sakit"};
     //Spinner spKateg;
     EditText etLaporan;
     ImageView imgFoto;
     Button btnSimpan;
-    private Bitmap bitmap, bitmap2;
+    private Bitmap bitmap;
     private int PICK_IMAGE_REQUEST = 1;
     private static final int CAMERA_REQUEST_CODE = 7777;
     TextView txtFoto;
@@ -83,7 +85,20 @@ public class ShareActivity extends AppCompatActivity {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImage();
+                if(bitmap == null){
+                    new SweetAlertDialog(ShareActivity.this,SweetAlertDialog.ERROR_TYPE)
+                            .setContentText("Foto belum ada !")
+                            .setConfirmText("Ok")
+                            .show();
+                }else if(etLaporan.getText().toString().isEmpty()){
+                    new SweetAlertDialog(ShareActivity.this,SweetAlertDialog.ERROR_TYPE)
+                            .setContentText("Laporan lengkap !")
+                            .setConfirmText("Ok")
+                            .show();
+                }else{
+                    uploadImage();
+                }
+
             }
         });
 

@@ -92,14 +92,18 @@ public class AdapterPostingme extends RecyclerView.Adapter<AdapterPostingme.MyVi
         }else{
             final ListPostingModel postingClass = postingListMe.get(position);
 
-            holder.txtKategoriMe.setText(postingClass.getKategori());
-            holder.txtPelaporMe.setText(postingClass.getPelapor());
-            holder.txtAlamatMe.setText(postingClass.getAlamat());
-            holder.txtIdlaporMe.setText(postingClass.getIdLapor());
-            holder.txtWaktuLaporMe.setText(postingClass.getWaktuLapor());
-            Glide.with(mContext)
-                    .load(postingClass.getFoto())
-                    .into(holder.imgFoto);
+            if(postingClass.equals("")){
+                Toast.makeText(mContext.getApplicationContext(),"Data belum ada !",Toast.LENGTH_LONG).show();
+            }else{
+                holder.txtKategoriMe.setText(postingClass.getKategori());
+                holder.txtPelaporMe.setText(postingClass.getPelapor());
+                holder.txtAlamatMe.setText(postingClass.getAlamat());
+                holder.txtIdlaporMe.setText(postingClass.getIdLapor());
+                holder.txtWaktuLaporMe.setText(postingClass.getWaktuLapor());
+                Glide.with(mContext)
+                        .load(postingClass.getFoto())
+                        .into(holder.imgFoto);
+            }
 
             btn_detailme.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,8 @@ public class FragmentProfil extends Fragment {
     RatingBar ratingBar;
     CardView cardBonus;
     Button btnGift;
+    Float badges=null,point=null;
+    Integer hasil2=null;
 
     public FragmentProfil() {
         // Required empty public constructor
@@ -67,6 +70,7 @@ public class FragmentProfil extends Fragment {
         //Toast.makeText(getActivity(),"Data "+SharedVariable.ID_PENGGUNA,Toast.LENGTH_LONG).show();
         getDataLike(SharedVariable.ID_PENGGUNA);
         getDataShare(SharedVariable.ID_PENGGUNA);
+
         btnGift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,28 +238,39 @@ public class FragmentProfil extends Fragment {
     }
 
     void gamifikasi(){
-        Float badges = Float.parseFloat(txtPointShare.getText().toString());
-        Float point = Float.parseFloat(txtPointLike.getText().toString());
-        Float hasil = (badges+point*5)/100;
-        Integer hasil2 = Integer.parseInt(txtPointShare.getText().toString())+Integer.parseInt(txtPointLike.getText().toString());
-        ratingBar.setRating(Float.valueOf(hasil));
+        try{
+            badges = Float.parseFloat(txtPointShare.getText().toString());
+            point = Float.parseFloat(txtPointLike.getText().toString());
+            Float hasil = (badges+point*5)/100;
+            hasil2 = Integer.parseInt(txtPointShare.getText().toString())+Integer.parseInt(txtPointLike.getText().toString());
+            ratingBar.setRating(Float.valueOf(hasil));
 
-        if(hasil2 >= 80){
-            txtBadges.setText("Freak");
-            cardBonus.setVisibility(View.VISIBLE);
-        }else if(hasil2 >= 70){
-            txtBadges.setText("Geek");
-            cardBonus.setVisibility(View.VISIBLE);
-        }else if(hasil2 >= 60){
-            txtBadges.setText("Addict");
-            cardBonus.setVisibility(View.VISIBLE);
-        }else if(hasil2 >= 50){
+            if(hasil2 >= 80){
+                txtBadges.setText("Freak");
+                cardBonus.setVisibility(View.VISIBLE);
+            }else if(hasil2 >= 70){
+                txtBadges.setText("Geek");
+                cardBonus.setVisibility(View.VISIBLE);
+            }else if(hasil2 >= 60){
+                txtBadges.setText("Addict");
+                cardBonus.setVisibility(View.VISIBLE);
+            }else if(hasil2 >= 50){
+                txtBadges.setText("Newbie");
+                cardBonus.setVisibility(View.INVISIBLE);
+            }else if(hasil2 < 50){
+                txtBadges.setText("Newbie");
+                cardBonus.setVisibility(View.INVISIBLE);
+            }
+
+        }catch (NumberFormatException a){
+            //Toast.makeText(getActivity(),"",Toast.LENGTH_LONG).show();
+            txtPointShare.setText("0");
+            txtPointLike.setText("0");
             txtBadges.setText("Newbie");
-            cardBonus.setVisibility(View.INVISIBLE);
-        }else if(hasil2 < 50){
-            txtBadges.setText("Newbie");
-            cardBonus.setVisibility(View.INVISIBLE);
+            Log.e("Error : ",a.getMessage());
         }
+
+
 
     }
 
