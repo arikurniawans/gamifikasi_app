@@ -50,7 +50,7 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
     public Button btn_detailal,btnLike;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView txtKategoriAll,txtPelaporAll,txtAlamatAll,txtIdlaporAll,txtWaktuLaporAll;
-        public ImageView imgFoto;
+        public ImageView imgFoto,imgStatus;;
         //public CircleImageView imgFoto;
         public CardView cv_main;
         public RelativeLayout relaList;
@@ -59,6 +59,7 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
         public MyViewHolder(View view) {
             super(view);
             imgFoto = view.findViewById(R.id.imgFotoAll);
+            imgStatus = view.findViewById(R.id.imgStatus);
             cv_main = view.findViewById(R.id.cardlist_item);
             relaList = view.findViewById(R.id.relaList);
             txtKategoriAll = view.findViewById(R.id.txtKategoriAll);
@@ -98,6 +99,11 @@ public class AdapterPosting extends RecyclerView.Adapter<AdapterPosting.MyViewHo
             holder.txtAlamatAll.setText(postingClass.getAlamat());
             holder.txtIdlaporAll.setText(postingClass.getIdLapor());
             holder.txtWaktuLaporAll.setText(postingClass.getWaktuLapor());
+            if(postingClass.getStatusLapor().equals("N")){
+                holder.imgStatus.setImageResource(R.drawable.ic_clock64);
+            }else if (postingClass.getStatusLapor().equals("Y")){
+                holder.imgStatus.setImageResource(R.drawable.check);
+            }
             Glide.with(mContext)
                     .load(postingClass.getFoto())
                     .into(holder.imgFoto);

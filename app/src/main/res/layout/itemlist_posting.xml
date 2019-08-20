@@ -207,13 +207,13 @@
 
         </LinearLayout>
 
-        <!-- <ImageView
-             android:id="@+id/imgStatus"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_marginLeft="340dp"
-             android:src="@drawable/check" />-->
+        <ImageView
+            android:id="@+id/imgStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="false"
+            android:layout_marginLeft="325dp"
+            android:src="@drawable/check" />
 
     </RelativeLayout>
 

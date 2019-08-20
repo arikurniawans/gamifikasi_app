@@ -124,6 +124,7 @@ public class PostingkuActivity extends AppCompatActivity {
                 String lati = jo.getString("lati");
                 String longi = jo.getString("longi");
                 String tgl_posting = jo.getString("tgl_posting");
+                String status = jo.getString("status");
 
                 getCompleteAddressString(Double.valueOf(lati),Double.valueOf(longi));
 
@@ -133,7 +134,8 @@ public class PostingkuActivity extends AppCompatActivity {
                         SharedVariable.ALAMAT,
                         id_posting,
                         "Nama Pelapor : "+nama,
-                        tgl_posting
+                        tgl_posting,
+                        status
 
                 );
                 postingModelList.add(posting);

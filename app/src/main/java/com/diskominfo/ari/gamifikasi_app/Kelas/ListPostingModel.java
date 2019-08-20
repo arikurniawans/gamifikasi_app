@@ -7,18 +7,20 @@ public class ListPostingModel {
     String idLapor;
     String pelapor;
     String waktuLapor;
+    String statusLapor;
 
     public ListPostingModel(){
 
     }
 
-    public ListPostingModel(String foto, String kategori, String alamat, String idLapor, String pelapor, String waktuLapor) {
+    public ListPostingModel(String foto, String kategori, String alamat, String idLapor, String pelapor, String waktuLapor, String statusLapor) {
         this.foto = foto;
         this.kategori = kategori;
         this.alamat = alamat;
         this.idLapor = idLapor;
         this.pelapor = pelapor;
         this.waktuLapor = waktuLapor;
+        this.statusLapor = statusLapor;
     }
 
     public String getFoto() {
@@ -67,5 +69,13 @@ public class ListPostingModel {
 
     public void setWaktuLapor(String waktuLapor) {
         this.waktuLapor = waktuLapor;
+    }
+
+    public String getStatusLapor() {
+        return statusLapor;
+    }
+
+    public void setStatusLapor(String statusLapor) {
+        this.statusLapor = statusLapor;
     }
 }
